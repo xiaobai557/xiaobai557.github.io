@@ -10,17 +10,7 @@
     <title>福利漫基地</title>
 </head>
 <body>
-    <p>新功能即将上线, 敬请期待222</p>
-    <p>v1.0 基础框架(单页面应用)</p>
-    <p>v1.1 定时同步官方更新日历</p>
-    <p>v1.2 官方免费话数在线观看</p>
-    <p>v1.3 定时同步官方排行榜</p>
-    <p>v1.4 官方收费版破解</p>
-    <p>v1.5 微信授权登录</p>
-    <p>v1.6 留言评论交流</p>
-    <p>v1.7 在线互动聊天室</p>
-    <p>...</p>
-    <p>不知道做不做得完...</p>
+    <div id="wrap"></div>
     <script type="text/javascript">
         function getUrlParam(name) {
             var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
@@ -28,7 +18,17 @@
             if (r!=null) return unescape(r[2]); return null;
         } 
         $(function () {
-            alert(getUrlParam('openid'));
+            $.get('http://47.106.101.145/xplan/api.php?openid='+getUrlParam('openid'), function (result) {
+                if (result.code == 0) {
+                    var html = '';
+                    for (var i=0; i<result.data.list; i++) {
+                        html += '<p>'+result.data.list[i]+'</p>';
+                    }
+                    $('#wrap').append(html);
+                } else {
+                    $('#wrap').append('<p>'+result.message+'</p>');
+                }
+            })
         })
     </script>
 </body>
