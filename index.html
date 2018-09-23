@@ -6,10 +6,11 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="format-detection" content="telephone=no">
     <meta charset="UTF-8" />
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
     <title>福利漫基地</title>
 </head>
 <body>
-    <p>新功能即将上线, 敬请期待111</p>
+    <p>新功能即将上线, 敬请期待222</p>
     <p>v1.0 基础框架(单页面应用)</p>
     <p>v1.1 定时同步官方更新日历</p>
     <p>v1.2 官方免费话数在线观看</p>
@@ -20,5 +21,15 @@
     <p>v1.7 在线互动聊天室</p>
     <p>...</p>
     <p>不知道做不做得完...</p>
+    <script type="text/javascript">
+        function getUrlParam(name) {
+            var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r!=null) return unescape(r[2]); return null;
+        } 
+        $(function () {
+            alert(getUrlParam('openid'));
+        })
+    </script>
 </body>
 </html>
