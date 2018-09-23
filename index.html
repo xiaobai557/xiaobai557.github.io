@@ -11,7 +11,6 @@
     <title>福利漫基地</title>
 </head>
 <body>
-    <iframe src='http://www.baidu.com'></iframe>
     <div id="wrap"></div>
     <script type="text/javascript">
         function getUrlParam(name) {
@@ -20,8 +19,7 @@
             if (r!=null) return unescape(r[2]); return null;
         } 
         $(function () {
-            return;
-            $.getJSON('http://47.106.101.145/xplan/api.php?openid='+getUrlParam('openid'), function (result) {
+            $.get('http://47.106.101.145/xplan/api.php?openid='+getUrlParam('openid'), function (result) {
                 if (result.code == 0) {
                     var html = '';
                     for (var i=0; i<result.data.list; i++) {
