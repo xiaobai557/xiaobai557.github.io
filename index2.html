@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>福利漫基地</title>
+    <link rel="stylesheet" href="https://xiaobai557.github.io/css/mui.min.css">
+    <link rel="stylesheet" href="https://xiaobai557.github.io/css/default.css" />
+    <link rel="stylesheet" href="https://xiaobai557.github.io/css/bookshelf.css" />
+    <link rel="stylesheet" href="https://xiaobai557.github.io/css/common.css" />
+    <link rel="stylesheet" href="https://xiaobai557.github.io/css/sign.css" />
+    <link rel="stylesheet" href="https://xiaobai557.github.io/css/bookcategory.css" />
+
+    <script src="https://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+
+    <script src="https://xiaobai557.github.io/js/mui.js"></script>
+    <script src="https://xiaobai557.github.io/js/highlight.pack.js"></script>
+    <script src="https://xiaobai557.github.io/js/mui.lazyload.js"></script>
+    <script src="https://xiaobai557.github.io/js/mui.lazyload.img.js"></script>
+    <script src="https://xiaobai557.github.io/js/jquery.bigautocomplete.js"></script>
+    <script src="https://xiaobai557.github.io/js/mui.zoom.js"></script>
+    
+    
+    </head>
+<body>
+
+
+<div class="mui-content cor-content">
+    <header class="mui-bar mui-bar-nav classify-header">
+        <a href="http://wx96ead72d9a3a3170.movie558.com/cartoon/1335/indexs/search/">
+        <div class="classify-input mui-input-row mui-search">
+            <i class="icon-source-list icon-search"></i>搜索漫画名~作者~
+        </div>
+        </a>
+        <!--分类隐藏样式-->
+        <div class="classify-list list-1" >
+            <div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+                <div class="mui-scroll1 classify-scroll">
+                    <a data-index="0" class="classify-listLi category-tab list-cate0"
+                       data-for="list-cate0" data-param="?end=0&category_id=0&query=base">
+                        全部
+                    </a>
+                                        <a data-index="1" class="classify-listLi category-tab list-cate47 active"
+                       data-for="list-cate47" data-param="?end=0&category_id=47&query=base">
+                        都市                    </a>
+                                        <a data-index="2" class="classify-listLi category-tab list-cate30 "
+                       data-for="list-cate30" data-param="?end=0&category_id=30&query=base">
+                        穿越                    </a>
+                                        <a data-index="3" class="classify-listLi category-tab list-cate33 "
+                       data-for="list-cate33" data-param="?end=0&category_id=33&query=base">
+                        异能                    </a>
+                                        <a data-index="4" class="classify-listLi category-tab list-cate40 "
+                       data-for="list-cate40" data-param="?end=0&category_id=40&query=base">
+                        搞笑                    </a>
+                </div>
+            </div>
+<!--            <div class="classify-pullDown" onclick="pullDown('classify-list','classify-listDown')"><i class="mui-icon mui-icon-arrowdown"></i></div>-->
+        </div>
+    </header>
+    <!--tab主要内容-->
+    <div id="pullrefresh" class="mui-content classify-content ">
+        <div class="category-list-div" style="display: none;">
+            <div class="classify-tab">
+                <a class="classifly-active a-tab tt1" data-for-tab="classifly-hot" data-order="book_view DESC,book_uptime DESC" data-class="classifly-hot" >人气</a>
+                <!-- <a class="a-tab tt2" data-for-tab="classifly-update" data-order="book_uptime DESC" data-class="classifly-update" >更新</a> -->
+<!--                <a class="a-tab tt3" data-for-tab="classifly-end" data-order="book_uptime END" data-class="classifly-end" >完结</a>-->
+                
+            <div class="category-list-div-ul ">
+                <div class="w-shelfBooklist classifly-hot">
+                    <ul>
+
+                    </ul>
+                </div>
+                <div class="w-shelfBooklist classifly-update">
+                    <ul>
+
+                    </ul>
+                </div>
+            </div>
+            </div>
+         </div>
+    </div>
+</div>
+<div id="roll_top" class="toTop y-index-toTop"></div>
+
+<nav class="mui-bar mui-bar-tab nav-footer tophref">
+    <a class="mui-tab-item " href="http://wx96ead72d9a3a3170.movie558.com/cartoon/1335/indexs/" >
+    <span class="footer-nav-icon icon-recommended"></span>
+    <span class="mui-tab-label">首页</span>
+    </a>
+    <a class="mui-tab-item mui-active" href="https://xiaobai557.github.io">
+        <span class="footer-nav-icon icon-class"></span>
+        <span class="mui-tab-label">分类</span>
+    </a>
+    <a class="mui-tab-item " href="http://wx96ead72d9a3a3170.movie558.com/cartoon/1335/user/readLog/">
+    <span class="footer-nav-icon icon-bookcase"></span>
+    <span class="mui-tab-label">历史</span>
+    </a>
+    <a class="mui-tab-item " href="http://wx96ead72d9a3a3170.movie558.com/cartoon/1335/user/me/">
+        <span class="footer-nav-icon icon-mine"></span>
+        <span class="mui-tab-label">我的</span>
+    </a>
+</nav>
+
+<!--    好友邀请金币弹窗-->
+
+<!--    国庆节充值活动弹窗-->
+
+
+
+<script>
+    var p =1,                                       // 当前页
+        limit = 10,                                 // 条数
+        order = 'book_tracer_count DESC,book_uptime DESC',  // 排序
+        ul = '',                                    // 是否只加载ul
+        ocls = '',                                  // 分类其他的更新，热门class
+        oord = '',                                  // 分类其他的order
+        isend = 0,                                  // 是否加载完
+        param = '',
+        current_classify = '';                      // 当前选中的按人气排序,还是按更新排序，默认第一个都是人气排序
+
+    function pullDown(o, fors) {
+        $('.' + o).hide();
+        $('.' + fors).show();
+    }
+
+    // 热门 更新切换
+    $('.a-tab').click(function () {
+        if (current_classify != $(this).data('class')) {
+            isend = 0;
+            p = 1;
+            $(this).addClass('classifly-active').siblings('a').removeClass('classifly-active');
+            $('.' + $(this).data('for-tab')).show().siblings('div').hide();
+            loadCategory($(this).data('order'),$(this).data('class'));
+
+            current_classify = $(this).data('class');
+        }
+    });
+
+    // category分类切换
+    $('.category-tab').click(function () {
+        isend = 0;
+        var o = $(this);
+        $('.' + o.data('for')).addClass('active').siblings('a').removeClass('active');
+        $('.category-list-div-ul ul').html('');
+
+        clickTab($(this).data('index'));
+
+        $('.tracer-list-div').html('').hide();
+        $('.category-list-div').show();
+        // 触发热门按钮
+        param = o.data('param');
+
+        current_classify = '';
+        $('.tt1').click();
+
+        // 触发热门按钮加粗
+//        $(this).css("font-weight","bold").siblings().css("font-weight","400");
+    });
+    $(".mui-scroll1 .list-cate0").trigger('click');     // 默认触发第一个category
+    var cateheight = $(".classify-list").height(),
+
+        pullrefresh = $('#pullrefresh') ;
+        pullrefresh.css('margin-top', cateheight+48+'px');
+
+    // 获取category分类的width
+    function getWidth() {
+        var widthOffset = $('.mui-scroll.classify-scroll').width();
+        var widthOut = $('.classify-list .mui-scroll-wrapper').width();
+        var width = widthOffset - widthOut;
+        return width;
+    }
+
+    // 设置当前选中的category的样式
+    function clickTab(index) {
+        $('.classify-pullDown').click();
+        var len = $('.list-1 .classify-listLi').length;
+        var width2 = getWidth();
+        if(3 <= index && index <= len - 4) {
+            var offset = -(index - 2) * 55;
+//            $('.mui-scroll.classify-scroll').css({
+//                "transform": "translate(" + offset + "px,0px)",
+//                "webkitTransform": "translate(" + offset + "px,0px)",
+//                "webkitTransitionDuration": "100ms"
+//            });
+        } else if(index < 4) {
+//            $('.mui-scroll.classify-scroll').css({
+//                "transform": "translate(0px,0px)",
+//                "webkitTransform": "translate(0px,0px)",
+//                "webkitTransitionDuration": "100ms"
+//            });
+        } else {
+//            $('.mui-scroll.classify-scroll').css({
+//                "transform": "translate(-" + width2 + "px,0px)",
+//                "webkitTransform": "translate(-" + width2 + "px,0px)",
+//                "webkitTransitionDuration": "100ms"
+//            });
+        }
+    }
+
+    // 加载分类其他的数据
+    function loadCategory(ord, c) {
+        ocls = c;
+        oord = ord;
+        if (c == 'classifly-hot') {
+            $('.classifly-update ul').html('');
+        } else {
+            $('.classifly-hot ul').html('');
+        }
+        $.post("https://mh.huihe8.com/index.php" + param, {p : p, limit : limit, ul : ul, order : ord}, function (r) {
+            $('.' + ocls +' ul').append(r);
+        },'html');
+    }
+
+    // 下拉刷新
+    window.addEventListener('scroll', function () {
+        var srollPos = $(document).scrollTop();
+        if (srollPos > 0 && isend == 0) {
+            if (srollPos >= $(document).height() - $(window).height()) {
+                p += 1;
+                ul = 1;
+                loadCategory(oord,ocls);
+            }
+        }
+    });
+
+
+    $(document).ready(function(){
+        //返回顶部
+        $('#roll_top').hide();
+        $(window).scroll(function () {
+            if ($(window).scrollTop() > 300) {
+                $('#roll_top').fadeIn(400);//当滑动栏向下滑动时，按钮渐现的时间
+
+            } else {
+                $('#roll_top').fadeOut(400);//当页面回到顶部第一屏时，按钮渐隐的时间
+            }
+        });
+        $('#roll_top').click(function () {
+            $('html,body').animate({
+                scrollTop : '0px'
+            }, 300);//返回顶部所用的时间 返回顶部也可调用goto()函数
+        });
+    });
+    function goto(selector){
+        $.scrollTo ( selector , 1000);
+    }
+</script>
+
+<script>
+    mui('.tophref').on('tap','a',function(){document.location.href=this.href;});
+</script>
+<script>
+
+    //    好友邀请弹窗
+    openFriendsGold();
+    function openFriendsGold(){
+        $(".y-friends-gold").addClass("y-friends-active");
+        setTimeout(function(){
+            $(".y-friends-goldbg").addClass("y-friends-active2");
+        },200)
+    }
+    function closeFriendsGold(){
+        $(".y-friends-goldbg").removeClass("y-friends-active2");
+        setTimeout(function(){
+            $(".y-friends-gold").removeClass("y-friends-active");
+        },100)
+    }
+</script>
+<script type="text/javascript" src="https://xiaobai557.github.io/js/common.js"></script>
+</body>
+</html>
+
